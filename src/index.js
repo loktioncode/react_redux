@@ -8,11 +8,14 @@ import allReducers from './reducers';
 import {Provider} from "react-redux"; //connects global state to our react app
 
 
-const store = createStore(allReducers,
+const myStore = createStore(allReducers,
    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
    );
 
-ReactDOM.render(<App />, document.getElementById('root') );
+ReactDOM.render(
+  <Provider store={myStore}>
+    <App />
+  </Provider>, document.getElementById('root') );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
