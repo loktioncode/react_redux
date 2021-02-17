@@ -8,12 +8,12 @@ import allReducers from './reducers';
 import {Provider} from "react-redux"; //connects global state to our react app
 
 
-const myStore = createStore(allReducers,
+const store = createStore(allReducers,
    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
    );
 
 ReactDOM.render(
-  <Provider store={myStore}>
+  <Provider store={store}>
     <App />
   </Provider>, document.getElementById('root') );
 

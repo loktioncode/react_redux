@@ -1,16 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter';
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, login } from "./actions";
+import { login } from "./actions";
 
 
 function App() {
 
-  //access to the global state
-  const counter = useSelector(state => state.counter);
+  // //access to the global state
+
   const isLogged = useSelector(state => state.isLogged);
 
-  //to dispactch actions
+  // //to dispactch actions
   const dispatch = useDispatch();
 
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+   
         {isLogged === true ? <h3 style={success}>ACCESS GRANTED</h3> : <h3 style={danger}>ACCESS LIMITED</h3>  }
       
       
@@ -29,17 +31,9 @@ function App() {
      
       
         {isLogged === true ?  <img src={logo} className="App-logo" alt="logo" /> : ''  }
-        {isLogged === true ?  <p>Hello Future</p> : '' }
+        {isLogged === true ?  <Counter /> : '' }
 
-        {
-        isLogged ?  
-        <div>
-            <p>
-              counter state is: {counter}
-            </p>
-        <button onClick={()=>dispatch(decrement())}>-</button>    <button onClick={()=>dispatch(increment())}>+</button>
-        </div> : '' 
-        }  
+   
       
       </header>
     </div>
